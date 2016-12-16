@@ -234,6 +234,7 @@ module DocusignRest
         end
 
         template_role['clientUserId'] = (signer[:client_id] || signer[:email]).to_s if signer[:embedded] == true
+        template_role['embeddedRecipientStartURL'] = (signer[:embedded_email_url] || "SIGN_AT_DOCUSIGN") if signer[:embedded_email] == true
         template_roles << template_role
       end
       template_roles
